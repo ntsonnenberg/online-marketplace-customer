@@ -1,7 +1,7 @@
 import { AppBar, Box, MenuItem, Toolbar } from "@mui/material";
 import StoreIcon from "@mui/icons-material/Store";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import Link from "next/link";
+import Link from "./Link";
 
 const appBarClasses = {
   boxShadow: 0,
@@ -34,17 +34,17 @@ export default function AppAppBar() {
           <StoreIcon color="primary" style={{ cursor: "pointer" }} />
         </Link>
         <Box sx={menuItemsBoxClasses}>
-          <Link href="/companies">
-            <MenuItem sx={menuItemClasses}>Companies</MenuItem>
-          </Link>
-          <Link href="/products">
-            <MenuItem sx={menuItemClasses}>Products</MenuItem>
-          </Link>
-          <Link href="/cart">
-            <MenuItem sx={menuItemClasses}>
-              <ShoppingBagOutlinedIcon style={{ fontSize: "large" }} />
-            </MenuItem>
-          </Link>
+          <MenuItem sx={menuItemClasses}>
+            <Link href="/companies">Companies</Link>
+          </MenuItem>
+          <MenuItem sx={menuItemClasses}>
+            <Link href="/products">Products </Link>
+          </MenuItem>
+          <MenuItem sx={menuItemClasses}>
+            <Link href="/cart">
+              <ShoppingBagOutlinedIcon style={{ fontSize: "large" }} />{" "}
+            </Link>
+          </MenuItem>
         </Box>
       </Toolbar>
     </AppBar>
