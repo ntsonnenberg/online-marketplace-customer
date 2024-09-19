@@ -1,4 +1,6 @@
+import { getVendors } from "@/actions/vendors";
 import Cart from "@/components/Cart";
+import CompanyVideo from "@/components/CompanyVideo";
 import { Box, Container } from "@mui/material";
 
 const baseContainerClasses = {
@@ -8,11 +10,23 @@ const baseContainerClasses = {
   justifyContent: "space-between",
 };
 
-export default function Home() {
+export default async function Home() {
+  const vendors = await getVendors();
+
   return (
     <main>
       <Container maxWidth="lg" sx={baseContainerClasses}>
-        <Box sx={{ bgcolor: "#cfe8fc" }}>Company Videos</Box>
+        <Box sx={{ bgcolor: "#cfe8fc" }}>
+          {vendors &&
+            vendors.map((vendor) => (
+              <CompanyVideo
+                key={vendor._id}
+                name={vendor.name}
+                image={vendor.image}
+                video="blah blah"
+              />
+            ))}
+        </Box>
         <Box sx={{ paddingTop: "3em" }}>
           <Cart />
         </Box>

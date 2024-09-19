@@ -38,7 +38,7 @@ export default function AppAppBar() {
             <Link href="/companies">Companies</Link>
           </MenuItem>
           <MenuItem sx={menuItemClasses}>
-            <Link href="/products">Products </Link>
+            <Link href="/products">Products</Link>
           </MenuItem>
           <MenuItem sx={menuItemClasses}>
             <Link href="/cart">

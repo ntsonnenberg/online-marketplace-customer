@@ -17,6 +17,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
+    h1: { fontSize: 32, fontWeight: 500 },
+    h2: { fontSize: 16, fontWeight: 300 },
+    h3: { fontSize: 12, fontWeight: 100 },
   },
 });
 
