@@ -1,3 +1,4 @@
+import { getHomePage } from "@/actions/home-page";
 import { getVendors } from "@/actions/vendors";
 import Cart from "@/components/Cart";
 import CompanyVideo from "@/components/CompanyVideo";
@@ -13,18 +14,23 @@ const baseContainerClasses = {
 export default async function Home() {
   const vendors = await getVendors();
 
+  const vendorsWithVideos = [];
+  if (vendors) {
+    for (let vendor of vendors) {
+      const homePage = await getHomePage(vendor._id);
+      vendorsWithVideos.push({ ...vendor, video: homePage?.video });
+    }
+  }
+
+  console.log(vendorsWithVideos);
+
   return (
     <main>
       <Container maxWidth="lg" sx={baseContainerClasses}>
         <Box sx={{ bgcolor: "#cfe8fc" }}>
           {vendors &&
-            vendors.map((vendor) => (
-              <CompanyVideo
-                key={vendor._id}
-                name={vendor.name}
-                image={vendor.image}
-                video="blah blah"
-              />
+            vendorsWithVideos.map((vendor) => (
+              <CompanyVideo key={vendor._id} vendor={vendor} />
             ))}
         </Box>
         <Box sx={{ paddingTop: "3em" }}>
