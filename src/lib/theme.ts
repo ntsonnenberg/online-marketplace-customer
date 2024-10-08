@@ -20,6 +20,7 @@ const theme = createTheme({
     h1: { fontSize: 32, fontWeight: 500 },
     h2: { fontSize: 16, fontWeight: 300 },
     h3: { fontSize: 12, fontWeight: 100 },
+    h4: { fontSize: 10, fontWeight: 100 },
   },
 });
 

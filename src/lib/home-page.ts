@@ -1,11 +1,12 @@
 import { HomePage } from "@/models/HomePage";
 import { mongooseConnect } from "./mongoose";
+import { serializeProduct } from "./product";
 
 const serializeHomePage = (homePage: HomePage): HomePage => ({
   ...homePage,
   _id: homePage._id.toString(),
   vendor: homePage.vendor.toString(),
-  featured: homePage.featured.map((_id) => _id.toString()),
+  featured: homePage.featured.map(serializeProduct),
 });
 
 export const getHomePageByVendor = async (vendorId: string) => {
@@ -15,6 +16,7 @@ export const getHomePageByVendor = async (vendorId: string) => {
       vendor: vendorId,
     })
       .select("-createdAt -updatedAt -__v")
+      .populate("featured")
       .lean();
 
     if (!homePage) {

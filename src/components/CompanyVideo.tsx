@@ -9,7 +9,7 @@ interface Props {
 
 export default function CompanyVideo({ vendor }: Props) {
   return (
-    <>
+    <Box sx={{ padding: 1 }}>
       <Stack spacing={4} direction="column">
         <Link href={`/companies/${vendor._id}`}>
           <Stack spacing={2} direction="row" sx={{ alignItems: "center" }}>
@@ -21,7 +21,7 @@ export default function CompanyVideo({ vendor }: Props) {
             <h2>{vendor.name}</h2>
           </Stack>
         </Link>
-        <Box component="section" sx={{ padding: 2 }}>
+        <Box component="section" sx={{ padding: 1 }}>
           <Card sx={{ maxWidth: 700, flexGrow: 1 }}>
             <CardMedia
               component="video"
@@ -32,6 +32,6 @@ export default function CompanyVideo({ vendor }: Props) {
           </Card>
         </Box>
       </Stack>
-    </>
+    </Box>
   );
 }

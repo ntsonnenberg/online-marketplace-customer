@@ -22,13 +22,11 @@ export default async function Home() {
     }
   }
 
-  console.log(vendorsWithVideos);
-
   return (
     <main>
       <Container maxWidth="lg" sx={baseContainerClasses}>
-        <Box sx={{ bgcolor: "#cfe8fc" }}>
-          {vendors &&
+        <Box sx={{ bgcolor: "#ffffff", borderRadius: "5px", boxShadow: 3 }}>
+          {vendorsWithVideos &&
             vendorsWithVideos.map((vendor) => (
               <CompanyVideo key={vendor._id} vendor={vendor} />
             ))}
