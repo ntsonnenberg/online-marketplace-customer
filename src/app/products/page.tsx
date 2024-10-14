@@ -3,7 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
-export default async function CompaniesPage() {
+export default async function ProductsPage() {
   const products = await getProducts({});
 
   return (
