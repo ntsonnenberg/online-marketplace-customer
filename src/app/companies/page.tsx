@@ -6,15 +6,13 @@ export default async function CompaniesPage() {
   const vendors = await getVendors();
 
   return (
-    <div>
-      <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ paddingTop: "8em" }}>
-          {vendors &&
-            vendors.map((vendor) => (
-              <CompanyCard key={vendor._id} vendor={vendor} />
-            ))}
-        </Grid>
-      </Container>
-    </div>
+    <Container maxWidth="lg">
+      <Grid container spacing={4} sx={{ paddingTop: "8em", marginX: "2em" }}>
+        {vendors &&
+          vendors.map((vendor) => (
+            <CompanyCard key={vendor._id} vendor={vendor} />
+          ))}
+      </Grid>
+    </Container>
   );
 }

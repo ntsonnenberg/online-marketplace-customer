@@ -7,15 +7,13 @@ export default async function ProductsPage() {
   const products = await getProducts({});
 
   return (
-    <div>
-      <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ paddingTop: "8em" }}>
-          {products &&
-            products.map((product) => (
-              <ProductCard key={product._id} product={product} />
-            ))}
-        </Grid>
-      </Container>
-    </div>
+    <Container maxWidth="lg">
+      <Grid container spacing={4} sx={{ paddingTop: "8em" }}>
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+      </Grid>
+    </Container>
   );
 }
