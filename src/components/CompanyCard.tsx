@@ -16,7 +16,10 @@ interface Props {
 export default function CompanyCard({ vendor }: Props) {
   return (
     <Grid>
-      <Card variant="outlined" sx={{ cursor: "pointer" }}>
+      <Card
+        variant="outlined"
+        sx={{ cursor: "pointer", backgroundColor: "#f8f8f8" }}
+      >
         <Link href={`/companies/${vendor._id}`}>
           <CardContent>
             <Avatar

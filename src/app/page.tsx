@@ -2,7 +2,8 @@ import { getHomePage } from "@/actions/home-page";
 import { getVendors } from "@/actions/vendors";
 import Cart from "@/components/Cart";
 import CompanyVideo from "@/components/CompanyVideo";
-import { Box, Container } from "@mui/material";
+import { Vendor } from "@/models/Vendor";
+import { Box, Container, Divider } from "@mui/material";
 
 const baseContainerClasses = {
   marginTop: "5em",
@@ -25,10 +26,15 @@ export default async function Home() {
   return (
     <main>
       <Container maxWidth="lg" sx={baseContainerClasses}>
-        <Box sx={{ bgcolor: "#ffffff", borderRadius: "5px", boxShadow: 3 }}>
+        <Box>
           {vendorsWithVideos &&
             vendorsWithVideos.map((vendor) => (
-              <CompanyVideo key={vendor._id} vendor={vendor} />
+              <>
+                <CompanyVideo key={vendor._id} vendor={vendor} />
+                {vendorsWithVideos.pop()._id === vendor._id ? null : (
+                  <Divider />
+                )}
+              </>
             ))}
         </Box>
         <Box sx={{ paddingTop: "3em" }}>

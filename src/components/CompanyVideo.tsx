@@ -10,7 +10,7 @@ interface Props {
 export default function CompanyVideo({ vendor }: Props) {
   return (
     <Box sx={{ padding: 1 }}>
-      <Stack spacing={4} direction="column">
+      <Stack direction="column">
         <Link href={`/companies/${vendor._id}`}>
           <Stack spacing={2} direction="row" sx={{ alignItems: "center" }}>
             <Avatar

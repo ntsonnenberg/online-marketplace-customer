@@ -10,7 +10,10 @@ interface Props {
 export default function ProductCard({ product }: Props) {
   return (
     <Grid>
-      <Card variant="outlined" sx={{ cursor: "pointer" }}>
+      <Card
+        variant="outlined"
+        sx={{ cursor: "pointer", backgroundColor: "#f8f8f8" }}
+      >
         <Link href={`/products/${product._id}`}>
           {product?.images.length ? (
             <CardMedia
@@ -21,7 +24,12 @@ export default function ProductCard({ product }: Props) {
           ) : null}
           <CardContent>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <Typography gutterBottom component="div" variant="h2">
+              <Typography
+                gutterBottom
+                component="div"
+                variant="h2"
+                sx={{ fontWeight: "bold" }}
+              >
                 {product.title}
               </Typography>
               <Typography gutterBottom component="div" variant="h2">
