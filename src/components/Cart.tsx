@@ -7,6 +7,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
+  Typography,
 } from "@mui/material";
 
 export default function Cart() {
@@ -22,7 +23,7 @@ export default function Cart() {
           alignItems: "center",
         }}
       >
-        <h3>Cart</h3>
+        <Typography variant="h6">Cart</Typography>
         <ShoppingBagOutlined style={{ fontSize: "large " }} />
       </Box>
       <TableContainer>

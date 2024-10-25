@@ -1,7 +1,7 @@
 import { getHomePage } from "@/actions/home-page";
 import { getVendor } from "@/actions/vendors";
 import ProductCard from "@/components/ProductCard";
-import { Avatar, Box, Card, CardMedia } from "@mui/material";
+import { Avatar, Box, Card, CardMedia, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 const boxClasses = {
@@ -23,7 +23,9 @@ export default async function CompanyPage({
     <Box sx={{ marginY: "5em" }}>
       <Box sx={boxClasses}>
         <Avatar src={vendor?.image} sx={{ width: 75, height: 75 }} />
-        <h2>{vendor?.name}</h2>
+        <Typography variant="h1" color="primary.main">
+          {vendor?.name}
+        </Typography>
       </Box>
       <Card sx={{ flexGrow: 1 }}>
         <CardMedia
@@ -34,13 +36,24 @@ export default async function CompanyPage({
         />
       </Card>
       <Box sx={{ marginX: "2em" }}>
-        <Box sx={{ marginY: "2em" }}>
-          <h2>About Us</h2>
+        <Box sx={{ marginY: "10em" }}>
+          <Typography variant="h1" color="primary.main">
+            About Us
+          </Typography>
           <Box sx={{ marginX: "2em" }}>
-            <p>{homePage?.about}</p>
+            <Typography variant="h6" color="primary.light">
+              {homePage?.about}
+            </Typography>
           </Box>
         </Box>
-        <Box sx={{ marginY: "4em" }}>
+        <Box sx={{ marginY: "10em" }}>
+          <Typography
+            variant="h1"
+            color="primary.main"
+            sx={{ marginBottom: "1em" }}
+          >
+            Featured Products
+          </Typography>
           <Grid container spacing={2}>
             {homePage?.featured.length
               ? homePage?.featured.map((product) => (
@@ -49,10 +62,14 @@ export default async function CompanyPage({
               : null}
           </Grid>
         </Box>
-        <Box sx={{ marginY: "2em" }}>
-          <h2>Our Mission</h2>
+        <Box sx={{ marginY: "10em" }}>
+          <Typography variant="h1" color="primary.main">
+            Our Mission
+          </Typography>
           <Box sx={{ marginX: "2em" }}>
-            <p>{homePage?.mission}</p>
+            <Typography variant="h6" color="primary.light">
+              {homePage?.mission}
+            </Typography>
           </Box>
         </Box>
       </Box>
