@@ -1,4 +1,7 @@
-import { ShoppingBagOutlined } from "@mui/icons-material";
+"use client";
+
+import { useCart } from "@/hooks/use-cart";
+import { ShoppingBagOutlined, Clear } from "@mui/icons-material";
 import {
   Box,
   Container,
@@ -11,6 +14,8 @@ import {
 } from "@mui/material";
 
 export default function Cart() {
+  const { cart, removeProduct } = useCart();
+
   return (
     <Container
       sx={{ p: 1, borderRadius: "5px", boxShadow: 3, color: "primary.main" }}
@@ -26,24 +31,34 @@ export default function Cart() {
         <Typography variant="h6">Cart</Typography>
         <ShoppingBagOutlined style={{ fontSize: "large " }} />
       </Box>
-      <TableContainer>
-        <Table size="small">
-          <TableBody>
-            <TableRow>
-              <TableCell>Shirt (1)</TableCell>
-              <TableCell>$19.99</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Pants (2)</TableCell>
-              <TableCell>$59.99</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Shoes (1)</TableCell>
-              <TableCell>$119.99</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {cart.products.length > 0 ? (
+        <TableContainer>
+          <Table size="small">
+            <TableBody>
+              {cart.products.map((product) => (
+                <TableRow key={product._id}>
+                  <TableCell sx={{ color: "primary.main" }}>
+                    {product.title}
+                  </TableCell>
+                  <TableCell sx={{ color: "primary.main" }}>
+                    ${product.price}
+                  </TableCell>
+                  <TableCell
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => removeProduct(product)}
+                  >
+                    <Clear fontSize="small" />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <Box sx={{ marginY: "2em", marginX: "4em" }}>
+          <Typography>Cart Empty</Typography>
+        </Box>
+      )}
     </Container>
   );
 }
