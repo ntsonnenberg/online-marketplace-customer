@@ -31,11 +31,11 @@ export default function Cart() {
         <Typography variant="h6">Cart</Typography>
         <ShoppingBagOutlined style={{ fontSize: "large " }} />
       </Box>
-      {cart.products.length > 0 ? (
+      {cart.length > 0 ? (
         <TableContainer>
           <Table size="small">
             <TableBody>
-              {cart.products.map((product) => (
+              {cart.map((product) => (
                 <TableRow key={product._id}>
                   <TableCell sx={{ color: "primary.main" }}>
                     {product.title}

@@ -67,7 +67,7 @@ export default function AppAppBar() {
           <MenuItem sx={menuItemClasses}>
             <Link href="/cart">
               <ShoppingBagOutlinedIcon style={{ fontSize: "large" }} /> (
-              {cart.products.length})
+              {cart.length})
             </Link>
           </MenuItem>
         </Box>
