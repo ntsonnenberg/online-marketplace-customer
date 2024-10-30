@@ -30,8 +30,7 @@ export const queryProducts = async (query: QueryOptions) => {
       return products;
     }
 
-    const products = await Product.find({});
-    // .populate("category");
+    const products = await Product.find({}).populate("category");
     if (!products.length) {
       throw new Error("Products not found.");
     }

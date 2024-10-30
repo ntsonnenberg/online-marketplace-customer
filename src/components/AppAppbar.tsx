@@ -55,9 +55,9 @@ export default function AppAppBar() {
           <StoreIcon color="primary" style={{ cursor: "pointer" }} />
         </Link>
         <Box sx={menuItemsBoxClasses}>
-          <Button variant="contained" onClick={addToCart}>
+          {/* <Button variant="contained" onClick={addToCart}>
             Add to Cart
-          </Button>
+          </Button> */}
           <MenuItem sx={menuItemClasses}>
             <Link href="/companies">Companies</Link>
           </MenuItem>
@@ -66,8 +66,8 @@ export default function AppAppBar() {
           </MenuItem>
           <MenuItem sx={menuItemClasses}>
             <Link href="/cart">
-              <ShoppingBagOutlinedIcon style={{ fontSize: "large" }} /> (
-              {cart.length})
+              <ShoppingBagOutlinedIcon style={{ fontSize: "large" }} />
+              {cart.length > 0 && `(${cart.length})`}
             </Link>
           </MenuItem>
         </Box>
